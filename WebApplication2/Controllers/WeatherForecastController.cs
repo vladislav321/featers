@@ -22,7 +22,7 @@ public class WeatherForecastController : ControllerBase
     [HttpGet(Name = "GetWeatherForecast")]
     public IEnumerable<WeatherForecast> Get()
     {
-        Log.Logger.Information("this is seqlogger");
+        Log.Logger.Information($"this is seqlogger2: {DateTime.Now}");
         var qwe = Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
@@ -31,7 +31,7 @@ public class WeatherForecastController : ControllerBase
             })
             .ToArray();
         
-        Log.Logger.Information("this is seqlogger end");
+        Log.Logger.Information($"this is seqlogger end2: {DateTime.Now}");
 
         return qwe;
 
